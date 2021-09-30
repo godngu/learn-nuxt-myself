@@ -1,47 +1,12 @@
 {
-    "workbench.startupEditor": "newUntitledFile",
-    "workbench.colorTheme": "Atom One Dark",
-    "workbench.preferredDarkColorTheme": "Material Syntax - Dark",
-    "workbench.tree.indent": 20,
-    "workbench.iconTheme": "material-icon-theme",
-    "terminal.integrated.fontFamily": "Ubuntu Mono derivative Powerline",
-    "terminal.integrated.fontSize": 16,
-    "liveServer.settings.donotShowInfoMsg": true,
-    "workbench.editor.enablePreview": false,
-    "eslint.validate": [
-    
-
-      {
-        "language": "vue",
-        "autoFix": true
-      },
-      {
-        "language": "javascript",
-        "autoFix": true
-      },
-      {
-        "language": "javascriptreact",
-        "autoFix": true
-      },
-      {
-        "language": "typescript",
-        "autoFix": true
-      },
-      {
-        "language": "typescriptreact",
-        "autoFix": true
-      }
-    ],
+    "editor.formatOnSave": false,
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true,
-    },
+        "source.fixAll.eslint": true,
+      },
+
     "eslint.workingDirectories": [
-      {"mode": "auto"},
+        {"mode": "auto"},
     ],
-    "editor.fontSize": 13,
-    "[html]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "editor.formatOnSave": true,
+
     "eslint.alwaysShowStatus": true,
 }
