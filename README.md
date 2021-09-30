@@ -1,6 +1,7 @@
 # learn-nuxt-myself
 
 ## 프로젝트 생성
+
 ```bash
 $ npm init nuxt-app {프로젝트명}
 ```
@@ -80,7 +81,6 @@ This directory contains your Vuex store files. Creating a file in this directory
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
 
-
 ## 화면
 
 ### 배치 순서: layouts > pages > components
@@ -95,3 +95,45 @@ More information about the usage of this directory in [the documentation](https:
 
 url마다 보여질 페이지를 배치한다.
 
+## 비동기 데이터 호출 방법
+
+### 싱글페이지 어플리케이션(SPA) vs 서버사이드렌더링(SSR)
+
+#### 차이점
+
+- SPA는 클라이언트사이드 렌더링이므로 빈 화면에 그린다.
+- SSR은 서버에서 완성된 화면을 클라이언트에 보여준다.
+- 따라서 데이터를 조회하고 화면에 그리는 시점을 달리 해야 한다.
+
+#### SPA
+
+- `create()` 뷰 라이프사이클 훅을 이용한다.
+
+```javascript
+export default {
+  data() {
+    return {
+      products: [],
+    };
+  },
+  created() {
+    const response = axios.get("url");
+    this.products = response.data;
+  },
+};
+```
+
+#### SSR
+
+- `asyncData`를 이용한다.
+- 데이터를 다 받아온 후에 화면에 표시한다.
+
+```javascript
+export default {
+  async asyncData({ prarams, $http }) {
+    const response = await axios.get("url");
+    const products = response.data;
+    return { products };
+  },
+};
+```
