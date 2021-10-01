@@ -16,6 +16,10 @@ module.exports = {
   plugins: [],
   // add your custom rules here
   rules: {
+    'no-unused-vars': [
+      'error',
+      { vars: 'all', args: 'after-used', ignoreRestSiblings: false },
+    ],
     'no-console': 'off',
     'prettier/prettier': [
       'error',

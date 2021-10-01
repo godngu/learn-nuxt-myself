@@ -127,6 +127,7 @@ export default {
 
 - `asyncData`를 이용한다.
 - 데이터를 다 받아온 후에 화면에 표시한다.
+- **root/pages/*** 하위에서만 사용이 가능하다.
 
 ```javascript
 export default {
