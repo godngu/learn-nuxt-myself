@@ -3,8 +3,8 @@
     <main>
       <div>
         <SearchInput
-          :search-keyword2="searchKeyword1"
-          @inputed="updateSearchKeyword"
+          v-model="searchKeyword"
+          @search="searchProducts"
         ></SearchInput>
       </div>
       <ul>
@@ -30,6 +30,7 @@
 <script>
 import axios from 'axios';
 import SearchInput from '@/components/SearchInput.vue';
+import { fetchProductsByKeyword } from '@/api/index';
 
 export default {
   components: { SearchInput },
@@ -44,7 +45,7 @@ export default {
 
   data() {
     return {
-      searchKeyword1: '',
+      searchKeyword: '',
     };
   },
 
@@ -52,8 +53,13 @@ export default {
     moveToDetailPage(id) {
       this.$router.push(`detail/${id}`);
     },
-    updateSearchKeyword(keyword) {
-      this.searchKeyword = keyword;
+    async searchProducts() {
+      const response = await fetchProductsByKeyword(this.searchKeyword);
+      console.log(response.data);
+      this.products = response.data.map(item => ({
+        ...item,
+        imageUrl: `${item.imageUrl}?random=${Math.random()}`,
+      }));
     },
   },
 };
