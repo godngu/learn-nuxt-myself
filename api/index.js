@@ -8,6 +8,10 @@ const carts = axios.create({
   baseURL: `${process.env.baseURL}/carts`,
 });
 
+function fetchProducts() {
+  return products.get('/products');
+}
+
 function fetchProductById(id) {
   return products.get(`/${id}`);
 }
@@ -33,4 +37,5 @@ export {
   fetchProductsByKeyword,
   createCartItem,
   fetchCartItems,
+  fetchProducts,
 };
