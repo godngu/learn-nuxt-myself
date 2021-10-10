@@ -9,7 +9,7 @@ const carts = axios.create({
 });
 
 function fetchProducts() {
-  return products.get('/products');
+  return products.get('/');
 }
 
 function fetchProductById(id) {
