@@ -23,6 +23,10 @@
           <span>{{ product.price }}</span>
         </li>
       </ul>
+      <div class="cart-wrapper">
+        <button class="btn" @click="moveToCartPage">장바구니 바로가기</button>
+      </div>
+      this.$router.push('/cart')
     </main>
   </div>
 </template>
@@ -60,6 +64,9 @@ export default {
         ...item,
         imageUrl: `${item.imageUrl}?random=${Math.random()}`,
       }));
+    },
+    moveToCartPage() {
+      this.$router.push('/cart');
     },
   },
 };
