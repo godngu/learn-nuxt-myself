@@ -16,10 +16,7 @@ module.exports = {
   plugins: [],
   // add your custom rules here
   rules: {
-    'no-unused-vars': [
-      'error',
-      { vars: 'all', args: 'after-used', ignoreRestSiblings: false },
-    ],
+    'no-unused-vars': 'off', // 0 이면 경고/알림 사라짐, 1 이면 경고만뜸, 2 빨간줄생성
     'no-console': 'off',
     'prettier/prettier': [
       'error',
