@@ -1,19 +1,36 @@
 import axios from 'axios';
 
-const instance = axios.create({
-  baseURL: 'http://localhost:3000',
+const products = axios.create({
+  baseURL: 'http://localhost:3000/products',
+});
+
+const carts = axios.create({
+  baseURL: 'http://localhost:3000/carts',
 });
 
 function fetchProductById(id) {
-  return instance.get(`/products/${id}`);
+  return products.get(`/${id}`);
 }
 
 function fetchProductsByKeyword(keyword) {
-  return instance.get('/products', {
+  return products.get('/', {
     params: {
       name_like: keyword,
     },
   });
 }
 
-export { fetchProductById, fetchProductsByKeyword };
+function createCartItem(cartItem) {
+  return carts.post('/', cartItem);
+}
+
+function fetchCartItems() {
+  return carts.get('/');
+}
+
+export {
+  fetchProductById,
+  fetchProductsByKeyword,
+  createCartItem,
+  fetchCartItems,
+};
